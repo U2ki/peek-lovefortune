@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/{id}', 'FortuneController@show');
-Route::post('/{id}', 'FortuneController@store');
+Route::get('/', 'FortuneController@index');
 Route::get('/fortune', 'FortuneController@create');
+Route::post('/fortune/peeked', 'FortuneController@store');
 
 Auth::routes(['verify' => true]);
 
