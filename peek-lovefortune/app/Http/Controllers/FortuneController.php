@@ -6,8 +6,11 @@ use App\Fortune;
 use App\Http\Requests\StoreFortuneRequest;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Throwable;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Admin;
 
 class FortuneController extends Controller
 {
@@ -44,10 +47,14 @@ class FortuneController extends Controller
         $fortune = new Fortune;
         $fortune->my_name = $request->myName;
         $fortune->my_crush_name = $request->myCrush;
-        $fortune->peek_user_id = "1";
+        $fortune->peek_user_id = $request->id;
         $fortune->save();
 
-        return redirect('/fortune');
+        $toMail = DB::table('users')->where('id', $fortune->peek_user_id)->value('email');
+
+        Mail::to($toMail)->send( new \App\Mail\Fortune($fortune->my_name, $fortune->my_crush_name) );
+
+        return redirect('/fortune/{id}/peeked');
     }
 
 
@@ -96,5 +103,23 @@ class FortuneController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Show the that it has been sent.
+     *
+     * @return Factory|View
+     */
+    public function peeked()
+    {
+        return view('peeked');
+    }
+
+    /**
+     * @param $id
+     */
+    public function sendMail($id)
+    {
+
     }
 }
