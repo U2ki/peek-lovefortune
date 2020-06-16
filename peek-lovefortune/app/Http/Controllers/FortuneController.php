@@ -57,6 +57,7 @@ class FortuneController extends Controller
         return redirect('/fortune/{id}/peeked');
     }
 
+
     /**
      * Show the that it has been sent.
      *
@@ -66,5 +67,4 @@ class FortuneController extends Controller
     {
         return view('peeked');
     }
-
 }
