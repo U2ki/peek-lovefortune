@@ -5,7 +5,7 @@
         <span class="moji">恋愛占い</span>
     </div>
     <div class="w-auto border p-5">
-        <form method="post" action="/fortune/peeked">
+        <form method="post" action="">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col m-4">
