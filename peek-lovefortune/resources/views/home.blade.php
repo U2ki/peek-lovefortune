@@ -12,7 +12,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div><a href="http://127.0.0.1/fortune/{{Auth::user()->id}}">http://127.0.0.1/fortune/{{Auth::user()->id}}</a></div>
+                    <div>
+                        <a href="http://127.0.0.1/fortune/{{Auth::user()->id}}">
+                            http://127.0.0.1/fortune/{{Auth::user()->id}}
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card m-3">
@@ -38,9 +42,19 @@
                                 <th scope="row">{{ $fortune_id++ }}</th>
                                 <td>{{ $fortune->my_name }}</td>
                                 <td>{{ $fortune->my_crush_name }}</td>
-                                <td>{{ $fortune->created_at }}</td>
-                                <td><input type="button" class="btn btn-info" value="編集"></td>
-                                <td><input type="button" class="btn btn-secondary" value="削除"></td>
+                                <td>{{ $fortune->updated_at }}</td>
+                                <td>
+                                    @include('modal_windows.modal_window',['my_name' => $fortune->my_name,
+                                                                           'my_crush_name' => $fortune->my_crush_name,
+                                                                           'function' => 'fix']
+                                                                    ){{$fortune->my_crush_name}}
+                                </td>
+                                <td>
+                                    @include('modal_windows.modal_window',['my_name' => $fortune->my_name,
+                                                                                  'my_crush_name' => $fortune->my_crush_name,
+                                                                                  'function' => 'delete']
+                                                                    )
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

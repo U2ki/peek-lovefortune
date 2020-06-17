@@ -38,7 +38,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('fix_modal_window');
     }
 
     /**
