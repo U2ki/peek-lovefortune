@@ -19,5 +19,6 @@
             </div>
             <button type="reset" class="btn btn-secondary m-5">リセット</button>
             <button type="submit" class="btn btn-primary m-5 px-4">占う</button>
+
     </div>
 @endsection

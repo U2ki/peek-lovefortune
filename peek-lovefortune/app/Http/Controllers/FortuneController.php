@@ -59,53 +59,6 @@ class FortuneController extends Controller
 
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     *
-     */
-    public function show($id)
-    {
-        //
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     *
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     *
-     */
-    public function update($id)
-    {
-        //
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     *
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
      * Show the that it has been sent.
      *
      * @return Factory|View
@@ -113,13 +66,5 @@ class FortuneController extends Controller
     public function peeked()
     {
         return view('peeked');
-    }
-
-    /**
-     * @param $id
-     */
-    public function sendMail($id)
-    {
-
     }
 }

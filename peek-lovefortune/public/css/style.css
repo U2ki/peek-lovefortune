@@ -4,3 +4,7 @@
 .moji {
     font-family: 'Kosugi', sans-serif;
 }
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.3) !important;
+}
