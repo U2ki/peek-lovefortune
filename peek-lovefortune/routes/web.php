@@ -22,3 +22,5 @@ Route::get('/fortune/{id}/peeked', 'FortuneController@peeked');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
+Route::delete('/home/delete/{id}', 'HomeController@destroy');
+

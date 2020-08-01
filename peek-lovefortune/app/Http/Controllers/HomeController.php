@@ -95,8 +95,9 @@ class HomeController extends Controller
      * @param  int  $id
      *
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Fortune::find($request->id)->delete();
+        return redirect('/home');
     }
 }

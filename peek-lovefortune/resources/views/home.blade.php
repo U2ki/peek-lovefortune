@@ -32,7 +32,6 @@
                                 <th scope="col">占った方の名前</th>
                                 <th scope="col">占った方の好きな人の名前</th>
                                 <th scope="col">日付</th>
-                                <th scope="col">編集</th>
                                 <th scope="col">削除</th>
                             </tr>
                         </thead>
@@ -43,16 +42,17 @@
                                 <td>{{ $fortune->my_name }}</td>
                                 <td>{{ $fortune->my_crush_name }}</td>
                                 <td>{{ $fortune->updated_at }}</td>
+{{--                                <td>--}}
+{{--                                    @include('modal_windows.modal_window',['my_name' => $fortune->my_name,--}}
+{{--                                                                           'my_crush_name' => $fortune->my_crush_name,--}}
+{{--                                                                           'function' => 'fix']--}}
+{{--                                                                    ){{$fortune->my_crush_name}}--}}
+{{--                                </td>--}}
                                 <td>
-                                    @include('modal_windows.modal_window',['my_name' => $fortune->my_name,
-                                                                           'my_crush_name' => $fortune->my_crush_name,
-                                                                           'function' => 'fix']
-                                                                    ){{$fortune->my_crush_name}}
-                                </td>
-                                <td>
-                                    @include('modal_windows.modal_window',['my_name' => $fortune->my_name,
-                                                                                  'my_crush_name' => $fortune->my_crush_name,
-                                                                                  'function' => 'delete']
+                                    @include('modal_windows.modal_window',[ 'id' => $fortune->id,
+	                                                                        'my_name' => $fortune->my_name,
+                                                                            'my_crush_name' => $fortune->my_crush_name
+                                                                           ]
                                                                     )
                                 </td>
                             </tr>
