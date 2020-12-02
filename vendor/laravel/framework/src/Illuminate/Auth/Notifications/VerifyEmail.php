@@ -44,10 +44,10 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::get('メールアドレスの確認'))
-            ->line(Lang::get('下のボタンをクリックしてメールアドレスを確認してください。'))
-            ->action(Lang::get('メールアドレスの確認'), $verificationUrl)
-            ->line(Lang::get('もし本メールにお心当たりが無い場合は、お手数ですが、破棄していただけますようお願いします。'));
+            ->subject(Lang::get('Verify Email Address'))
+            ->line(Lang::get('Please click the button below to verify your email address.'))
+            ->action(Lang::get('Verify Email Address'), $verificationUrl)
+            ->line(Lang::get('If you did not create an account, no further action is required.'));
     }
 
     /**
